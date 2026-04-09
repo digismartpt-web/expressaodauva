@@ -375,24 +375,24 @@ const menuData = {
         <!-- Sandes / Menu Infantil -->
         <button 
           class="menu-btn group p-8 bg-neutral-50 hover:bg-gold/10 border border-neutral-200 hover:border-gold transition-all duration-300 text-left"
-          data-images="/images/menu-sandes.png"
-          data-title="Sandes / Menu Infantil"
+          data-images="/images/gallery/sandes.webp"
+          data-title="Sandes / Acompanhamentos"
         >
           <div class="flex items-center justify-between">
             <h3 class="text-2xl md:text-3xl font-serif text-gray-900 group-hover:text-gold transition-colors">
-              Sandes / Menu infantil
+              Sandes / Acompanhamentos
             </h3>
             <svg class="w-6 h-6 text-gray-400 group-hover:text-gold group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </div>
-          <p class="mt-2 text-sm text-gray-500">Picanha, bifana, prego, hambúrguer...</p>
+          <p class="mt-2 text-sm text-gray-500">Prego, hambúrguer...</p>
         </button>
 
         <!-- Pizzas -->
         <button 
           class="menu-btn group p-8 bg-neutral-50 hover:bg-gold/10 border border-neutral-200 hover:border-gold transition-all duration-300 text-left"
-          data-images="/images/menu-pizzas1.png,/images/menu-pizzas2.png"
+          data-images="/images/gallery/pizzas.webp,/images/gallery/pizzas1.webp,/images/gallery/pizzas2.webp"
           data-title="Pizzas"
         >
           <div class="flex items-center justify-between">
@@ -409,7 +409,7 @@ const menuData = {
         <!-- Saladas / Entradas / Sugestões -->
         <button 
           class="menu-btn group p-8 bg-neutral-50 hover:bg-gold/10 border border-neutral-200 hover:border-gold transition-all duration-300 text-left"
-          data-images="/images/menu-saladas.png"
+          data-images="/images/gallery/Entradas.webp,/images/gallery/saladas.webp"
           data-title="Saladas / Entradas / Sugestões"
         >
           <div class="flex items-center justify-between">
@@ -420,13 +420,13 @@ const menuData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </div>
-          <p class="mt-2 text-sm text-gray-500">Saladas, massas, tábua Olhar o Sol...</p>
+          <p class="mt-2 text-sm text-gray-500">Saladas, Menu Infantil, massas, pratos combinados ...</p>
         </button>
 
         <!-- Cachorros / Francesinhas -->
         <button 
           class="menu-btn group p-8 bg-neutral-50 hover:bg-gold/10 border border-neutral-200 hover:border-gold transition-all duration-300 text-left"
-          data-images="/images/menu-cachorros.png"
+          data-images="/images/gallery/Cachorros.webp"
           data-title="Cachorros / Francesinhas"
         >
           <div class="flex items-center justify-between">
@@ -437,7 +437,7 @@ const menuData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </div>
-          <p class="mt-2 text-sm text-gray-500">Francesinhas, Cachorros, Pratos Combinados...</p>
+          <p class="mt-2 text-sm text-gray-500">Francesinhas, Cachorros ...</p>
         </button>
       </div>
     </div>
@@ -527,7 +527,9 @@ const menuData = {
           const img = document.createElement('img');
           img.src = imgSrc.trim();
           img.alt = `${title} ${index + 1}`;
-          img.className = imageArray.length > 1 
+          img.className = imageArray.length > 2
+            ? 'max-w-full md:max-w-[32%] max-h-[85vh] object-contain'
+            : imageArray.length > 1 
             ? 'max-w-full md:max-w-[48%] max-h-[85vh] object-contain' 
             : 'max-w-full max-h-[85vh] object-contain';
           lightboxContainer.appendChild(img);
