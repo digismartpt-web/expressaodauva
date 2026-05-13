@@ -9,16 +9,13 @@ const menuItems = [
 ];
 ---
 
-<!-- Lilia Style Header -->
-<!-- We use 'fixed' to ensure it stays on top. -->
 <header id="main-header" class="fixed top-0 w-full bg-white z-50 transition-all duration-300 border-b border-transparent">
-  <div id="header-container" class="container mx-auto px-6 md:px-8 transition-all duration-300">
+  <div id="header-container" class="container mx-auto px-6 md:px-8">
     <nav id="nav-container" class="flex flex-col items-center justify-center transition-all duration-300 pt-6 pb-2 md:pt-10 md:pb-4">
-      
+
       <!-- Logo / Name -->
-      <div class="flex items-center gap-4 mb-4 md:mb-6 md:flex-col">
+      <div id="logo-section" class="flex items-center gap-4 mb-4 md:mb-6 md:flex-col transition-all duration-300">
         <a href="/#home" id="logo-link" class="flex flex-col items-center text-center group transition-all duration-300">
-          <!-- Logo visible uniquement avant scroll -->
           <div id="logo-img-wrapper" class="mb-3 transition-all duration-300">
             <img
               src="/images/social/logo-removebg-preview(1).png"
@@ -30,11 +27,12 @@ const menuItems = [
           <span id="logo-text" class="font-serif text-3xl md:text-5xl tracking-wider text-neutral-900 transition-all duration-300">{restaurantConfig.name}</span>
           <span id="logo-sub" class="text-xs md:text-sm tracking-[0.3em] uppercase text-neutral-500 mt-2 transition-all duration-300">Bar de Vinhos</span>
         </a>
-        <!-- Mobile-only Pedir Online button beside logo -->
-        <a 
-          href="https://www.instagram.com/expressao_da_uva/reels/" 
-          target="_blank" 
+        <!-- Mobile-only Pedir Online button -->
+        <a
+          href="https://www.instagram.com/expressao_da_uva/reels/"
+          target="_blank"
           rel="noopener noreferrer"
+          id="pedir-mobile"
           class="pedir-btn md:hidden px-3 py-1.5 bg-gold text-white text-[9px] font-bold uppercase tracking-widest rounded-full hover:bg-neutral-900 transition-all duration-300 shadow-md whitespace-nowrap"
         >
           Pedir Online
@@ -42,7 +40,7 @@ const menuItems = [
       </div>
 
       <!-- Desktop Menu -->
-      <div id="desktop-menu" class="hidden md:flex items-start space-x-12 opacity-100 transition-all duration-300">
+      <div id="desktop-menu" class="hidden md:flex items-center space-x-12 opacity-100 transition-all duration-300">
         {menuItems.map(item => (
           <div class="flex flex-col items-center relative">
             <a
@@ -53,9 +51,9 @@ const menuItems = [
             </a>
             {item.text === 'Click & Collect' && (
               <div class="absolute top-[110%] left-0 w-full">
-                <a 
-                  href="https://www.instagram.com/expressao_da_uva/reels/" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/expressao_da_uva/reels/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   class="pedir-btn block w-full text-center px-3 py-0.5 bg-gold text-white text-[8px] font-bold uppercase tracking-widest rounded-full hover:bg-neutral-900 transition-colors duration-300 shadow-sm whitespace-nowrap"
                 >
@@ -67,11 +65,10 @@ const menuItems = [
         ))}
       </div>
 
-
-      <!-- Mobile Menu Button (Absolute positioned to stay accessible) -->
-      <button 
+      <!-- Mobile Menu Button -->
+      <button
         id="mobile-menu-button"
-        class="md:hidden absolute right-6 top-6 p-2 text-neutral-900"
+        class="md:hidden absolute right-6 top-6 p-2 text-neutral-900 transition-all duration-300"
         aria-label="Menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,13 +79,13 @@ const menuItems = [
   </div>
 </header>
 
-<!-- Spacer to prevent content from hiding behind fixed header initially -->
+<!-- Spacer initial -->
 <div class="h-[220px] md:h-[360px] bg-white"></div>
 
 <!-- Mobile Menu Full Screen Overlay -->
 <div id="mobile-menu" class="fixed inset-0 bg-neutral-900 z-50 hidden opacity-0 transition-opacity duration-300">
   <div class="h-full flex flex-col justify-center items-center">
-    <button 
+    <button
       id="close-menu-button"
       class="absolute top-6 right-6 p-2 text-white"
       aria-label="Fechar menu"
@@ -111,9 +108,9 @@ const menuItems = [
             {item.text}
           </a>
           {item.text === 'Click & Collect' && (
-            <a 
-              href="https://www.instagram.com/expressao_da_uva/reels/" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/expressao_da_uva/reels/"
+              target="_blank"
               rel="noopener noreferrer"
               class="px-8 py-3 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-full hover:bg-white hover:text-gold transition-all duration-300 shadow-lg"
             >
@@ -124,7 +121,6 @@ const menuItems = [
       ))}
     </nav>
 
-    <!-- Social Links in Mobile Menu -->
     <div class="absolute bottom-10 flex gap-8">
       <a href={restaurantConfig.contact.instagram} target="_blank" rel="noopener noreferrer" class="text-white/60 hover:text-white transition-colors">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -137,108 +133,140 @@ const menuItems = [
 </div>
 
 <style>
-  /* Animation bouton Pedir Online */
   @keyframes pedir-arrive {
     0%   { opacity: 0; transform: translateY(10px) scale(0.9); }
     70%  { opacity: 1; transform: translateY(-3px) scale(1.04); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
-
   .pedir-btn {
     animation: pedir-arrive 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     animation-delay: 0.3s;
   }
-
-  /* Scrolled State Overrides */
-  header.scrolled {
-    @apply shadow-sm py-0;
-  }
-
-  header.scrolled #logo-img-wrapper {
-    display: none;
-  }
-  
-  header.scrolled #nav-container {
-    @apply flex-row justify-between py-4;
-  }
-
-  header.scrolled #logo-link {
-    @apply mb-0 text-left items-start;
-  }
-
-  header.scrolled #logo-text {
-    @apply text-xl md:text-2xl;
-  }
-
-  header.scrolled #logo-sub {
-    @apply mt-0 text-[10px]; /* Keep visible */
-  }
-
-  header.scrolled #desktop-menu {
-    @apply space-x-8;
-  }
-  
-  /* Mobile Button adjustments for scrolled state if needed */
-  header.scrolled #mobile-menu-button {
-    @apply top-4;
-  }
 </style>
 
 <script>
-  const header = document.getElementById('main-header');
-  const scrollThreshold = 50;
+  const header        = document.getElementById('main-header')!;
+  const logoImgWrapper = document.getElementById('logo-img-wrapper')!;
+  const navContainer  = document.getElementById('nav-container')!;
+  const logoSection   = document.getElementById('logo-section')!;
+  const logoLink      = document.getElementById('logo-link')!;
+  const logoText      = document.getElementById('logo-text')!;
+  const logoSub       = document.getElementById('logo-sub')!;
+  const desktopMenu   = document.getElementById('desktop-menu');
+  const pedirMobile   = document.getElementById('pedir-mobile');
+  const mobileBtn     = document.getElementById('mobile-menu-button');
 
-  function updateHeader() {
-    if (window.scrollY > scrollThreshold) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
+  const THRESHOLD = 50;
+  let scrolled = false;
+
+  function applyScrolled() {
+    // Header ombre
+    header.style.boxShadow = '0 1px 4px rgba(0,0,0,0.08)';
+
+    // Logo image disparaît
+    logoImgWrapper.style.display = 'none';
+
+    // Nav → ligne horizontale
+    navContainer.style.flexDirection  = 'row';
+    navContainer.style.alignItems     = 'center';
+    navContainer.style.justifyContent = 'space-between';
+    navContainer.style.paddingTop     = '0.6rem';
+    navContainer.style.paddingBottom  = '0.6rem';
+
+    // Bloc logo : plus de marge en bas
+    logoSection.style.marginBottom = '0';
+
+    // Nom + Bar de Vinhos : alignés à gauche
+    logoLink.style.alignItems = 'flex-start';
+    logoLink.style.textAlign  = 'left';
+
+    // Textes plus petits
+    logoText.style.fontSize   = '1.25rem';
+    logoText.style.lineHeight = '1.2';
+    logoSub.style.marginTop   = '0';
+    logoSub.style.fontSize    = '0.6rem';
+
+    // Menu desktop : espacement réduit
+    if (desktopMenu) desktopMenu.style.gap = '2rem';
+
+    // Bouton Pedir mobile : plus petit (pas masqué)
+    if (pedirMobile) {
+      pedirMobile.style.fontSize  = '0.5rem';
+      pedirMobile.style.padding   = '0.2rem 0.5rem';
     }
+
+    // Bouton hamburger repositionné
+    if (mobileBtn) mobileBtn.style.top = '0.8rem';
   }
 
-  window.addEventListener('scroll', updateHeader);
-  // Initial check
+  function resetScrolled() {
+    header.style.boxShadow = '';
+
+    logoImgWrapper.style.display = '';
+
+    navContainer.style.flexDirection  = '';
+    navContainer.style.alignItems     = '';
+    navContainer.style.justifyContent = '';
+    navContainer.style.paddingTop     = '';
+    navContainer.style.paddingBottom  = '';
+
+    logoSection.style.marginBottom = '';
+
+    logoLink.style.alignItems = '';
+    logoLink.style.textAlign  = '';
+
+    logoText.style.fontSize   = '';
+    logoText.style.lineHeight = '';
+    logoSub.style.marginTop   = '';
+    logoSub.style.fontSize    = '';
+
+    if (desktopMenu) desktopMenu.style.gap = '';
+
+    if (pedirMobile) {
+      pedirMobile.style.fontSize = '';
+      pedirMobile.style.padding  = '';
+    }
+
+    if (mobileBtn) mobileBtn.style.top = '';
+  }
+
+  function updateHeader() {
+    const shouldScroll = window.scrollY > THRESHOLD;
+    if (shouldScroll === scrolled) return;
+    scrolled = shouldScroll;
+    shouldScroll ? applyScrolled() : resetScrolled();
+  }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
 
-  // Preserved Mobile Menu Scripts
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  // ── Mobile menu ──
+  const mobileMenu      = document.getElementById('mobile-menu');
   const closeMenuButton = document.getElementById('close-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
 
-  // Mobile menu functions
   function openMenu() {
-    if (mobileMenu) {
-      mobileMenu.classList.remove('hidden');
-      setTimeout(() => {
-        mobileMenu.classList.remove('opacity-0');
-      }, 10);
-      document.body.style.overflow = 'hidden';
-    }
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+    document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
-    if (mobileMenu) {
-      mobileMenu.classList.add('opacity-0');
-      setTimeout(() => {
-        mobileMenu.classList.add('hidden');
-      }, 300);
-      document.body.style.overflow = '';
-    }
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('opacity-0');
+    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+    document.body.style.overflow = '';
   }
 
-  mobileMenuButton?.addEventListener('click', openMenu);
+  mobileBtn?.addEventListener('click', openMenu);
   closeMenuButton?.addEventListener('click', closeMenu);
-  
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+  mobileMenu?.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
 
   document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href && href.startsWith('/#')) {
-        const hash = href.substring(1);
-        const target = document.querySelector(hash);
+      const href = (this as HTMLAnchorElement).getAttribute('href');
+      if (href?.startsWith('/#')) {
+        const target = document.querySelector(href.substring(1));
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
