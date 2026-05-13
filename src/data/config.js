@@ -1,62 +1,56 @@
 export const restaurantConfig = {
-  name: "Olhar o Sol",
-  tagline: "Pizzaria",
-  description: "O melhor sabor da cozinha regional e tradicional. Pizzas deliciosas, kebabs fascinantes e um ambiente acolhedor.",
-  heroText: "Experiência gastronómica única em Riba d'Ave",
+  name: "Expressão da Uva",
+  tagline: "Vinhos & Degustação",
+  description: "Découvrez l'âme du vin chez Expressão da Uva, un lieu où la passion rencontre la connaissance. Niché au cœur de Riba d'Ave, notre espace est une invitation à explorer un univers de saveurs, des vins soigneusement sélectionnés aux bières artisanales. Que ce soit pour une dégustation intime à l'intérieur ou un moment convivial en terrasse, laissez-vous guider par notre patron, un véritable expert qui partagera avec vous les secrets de chaque bouteille. Plus qu'une simple dégustation, c'est une expérience sensorielle et humaine qui vous attend.",
+  heroText: "L'art du vin à Riba d'Ave",
   aboutTitle: "Sobre nós",
   aboutText: [
-    "Situado em Riba d'Ave, o Olhar o Sol serve pratos saborosos num ambiente acolhedor na região do norte.",
-    "A nossa equipa de profissionais dedicados elabora pratos generosos e de qualidade. Os nossos pratos do dia são servidos de forma rápida, ideal para quem tem pouco tempo.",
-    "Conjugamos tradição artesanal e paixão pelo sabor para criar momentos inesquecíveis."
+    "Situado em Riba d'Ave, a Expressão da Uva é um espaço dedicado à arte do vinho e à degustação.",
+    "O nosso proprietário, um verdadeiro especialista, está sempre disponível para partilhar os segredos de cada garrafa e ajudá-lo a descobrir novos sabores.",
+    "Desfrute da nossa seleção de vinhos e cervejas artesanais no nosso espaço interior ou nas nossas duas esplanadas exteriores."
   ],
   address: {
-    street: "Rua das Agras n5",
+    street: "Av. Narciso Ferreira 29 Loja 3",
     city: "Riba d'Ave",
-    postalCode: "4765-181",
+    postalCode: "4765-202",
     country: "Portugal",
-    googleMapsLink: "https://www.google.com/maps/place/Olhar+o+Sol/@41.393992,-8.3942252,17z/data=!3m1!4b1!4m6!3m5!1s0xd24f14a1a62c0f5:0xda13ff942c2d5543!8m2!3d41.393988!4d-8.3916503!16s%2Fg%2F11clgj_q5s?hl=pt&entry=ttu",
-    embedLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.4842971276!2d-8.3942252!3d41.393992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24f14a1a62c0f5%3A0xda13ff942c2d5543!2sOlhar%20o%20Sol!5e0!3m2!1spt-PT!2spt!4v1709876543210!5m2!1spt-PT!2spt"
+    googleMapsLink: "https://www.google.com/maps/place/express%C3%A3o+da+uva/@41.4034251,-8.4082688,15z/data=!4m6!3m5!1s0xd24f7790972fee3:0xa40734c21baa2787!8m2!3d41.3897697!4d-8.3967869!16s%2Fg%2F11vwx827zc",
+    embedLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d-8.3967869!3d41.3897697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24f7790972fee3%3A0xa40734c21baa2787!2sExpres%C3%A3o%20da%20Uva!5e0!3m2!1spt-PT!2spt!4v1747137600000!5m2!1spt-PT!2spt"
   },
   contact: {
-    phone: "+351 918 804 459",
-    email: "olharosol.07@gmail.com",
-    facebook: "https://www.facebook.com/pizzariaOlharoSol/",
-    instagram: "https://www.instagram.com/olharosolpizzaria/"
+    phone: "+351 912 564 530",
+    email: "expressao.da.uva@gmail.com",
+    facebook: "https://www.facebook.com/p/Express%C3%A3o-da-uva-61558797320121/",
+    instagram: "https://www.instagram.com/expressao_da_uva/"
   },
   hours: {
-    segunda_terca: "Encerrado",
-    quarta_quinta: "11:00 - 15:00 • 18:00 - 23:00",
-    sexta_sabado: "11:00 - 24:00",
-    domingo: "18:00 - 23:00"
+    segunda: "Encerrado",
+    terca: "10:00 - 20:00",
+    quarta: "10:00 - 20:00",
+    quinta: "10:00 - 20:00",
+    sexta: "10:00 - 22:00",
+    sabado: "10:00 - 22:00",
+    domingo: "Encerrado"
   },
   seo: {
-    keywords: "pizzaria, kebabs, Riba d'Ave, restaurante, Olhar o Sol, pizza, gastronomia",
-    author: "Olhar o Sol"
+    keywords: "vinho, degustação, Riba d'Ave, Expressão da Uva, cerveja artesanal, vinhos selecionados",
+    author: "Expressão da Uva"
   },
   images: {
-    logo: "/images/gallery/logo.jpg",
-    hero: "/images/gallery/16.jpg",
-    cover: "/images/gallery/restaurante.jpg",
+    logo: "/images/social/logo.jpg",
+    hero: "/images/social/01.jpg",
+    cover: "/images/social/01.jpg",
     gallery: [
-      { src: "/images/gallery/1.jpg", alt: "Prato de peixe" },
-      { src: "/images/gallery/restaurante.jpg", alt: "Nossa sala principal" },
-      { src: "/images/gallery/2.jpg", alt: "Salgadinhos tradicionais" },
-      { src: "/images/gallery/3.jpg", alt: "Prato de carne com batatas" },
-      { src: "/images/gallery/4.jpg", alt: "Salada de atum" },
-      { src: "/images/gallery/restaurante1.jpg", alt: "Ambiente acolhedor" },
-      { src: "/images/gallery/5.jpg", alt: "Picanha na tábua" },
-      { src: "/images/gallery/6.jpg", alt: "Hambúrguer gourmet" },
-      { src: "/images/gallery/7.jpg", alt: "Kebab dürüm" },
-      { src: "/images/gallery/restaurante2.jpg", alt: "Nossa esplanada" },
-      { src: "/images/gallery/8.jpg", alt: "Prato de massa" },
-      { src: "/images/gallery/9.jpg", alt: "Prato combinado" },
-      { src: "/images/gallery/10.jpg", alt: "Salada Olhar o Sol" },
-      { src: "/images/gallery/restaurante3.jpg", alt: "Decoração Olhar o Sol" },
-      { src: "/images/gallery/11.jpg", alt: "Bifana especial" },
-      { src: "/images/gallery/12.jpg", alt: "Petiscos variados" },
-      { src: "/images/gallery/13.jpg", alt: "Prato de bacalhau" },
-      { src: "/images/gallery/14.jpg", alt: "Grelhada mista" },
-      { src: "/images/gallery/15.jpg", alt: "Francesinha Olhar o Sol" }
+      { src: "/images/social/01.jpg", alt: "Vinhos selecionados" },
+      { src: "/images/social/02.jpg", alt: "Nosso espaço interior" },
+      { src: "/images/social/03.jpg", alt: "Degustação" },
+      { src: "/images/social/04.jpg", alt: "Tábuas de queijos" },
+      { src: "/images/social/05.jpg", alt: "Esplanada exterior" },
+      { src: "/images/social/06.jpg", alt: "Ambiente acolhedor" },
+      { src: "/images/social/07.jpg", alt: "Seleção de vinhos" },
+      { src: "/images/social/08.jpg", alt: "Momento de degustação" },
+      { src: "/images/social/09.jpg", alt: "Cervejas artesanais" },
+      { src: "/images/social/10.jpg", alt: "Esplanada" }
     ]
   }
 };

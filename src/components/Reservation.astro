@@ -15,7 +15,7 @@ import { restaurantConfig } from '../data/config.js';
     <div class="text-center mb-16 reveal">
       <span class="text-gold uppercase tracking-[0.3em] text-sm font-medium">Reservas Online</span>
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-light mt-4 mb-4">
-        Reserve a sua mesa
+        Reserve a sua experiência
       </h2>
 
     </div>
@@ -39,14 +39,14 @@ import { restaurantConfig } from '../data/config.js';
               <div>
                 <h4 class="font-medium text-white mb-2">Horário</h4>
                 <div class="space-y-1 text-sm text-gray-400">
-                  <p><span class="text-gold font-medium">{restaurantConfig.hours.segunda_terca}</span> Seg/Ter</p>
-                  <p>{restaurantConfig.hours.quarta_quinta} Qua/Qui</p>
-                  <p>{restaurantConfig.hours.sexta_sabado} Sex/Sáb</p>
-                  <p>{restaurantConfig.hours.domingo} Dom</p>
+                  <p><span class="text-gray-500 w-8 inline-block">Seg:</span> <span class="text-gold font-medium">{restaurantConfig.hours.segunda}</span></p>
+                  <p><span class="text-gray-500 w-8 inline-block">Ter:</span> {restaurantConfig.hours.terca}</p>
+                  <p><span class="text-gray-500 w-8 inline-block">Qua:</span> {restaurantConfig.hours.quarta}</p>
+                  <p><span class="text-gray-500 w-8 inline-block">Qui:</span> {restaurantConfig.hours.quinta}</p>
+                  <p><span class="text-gray-500 w-8 inline-block">Sex:</span> {restaurantConfig.hours.sexta}</p>
+                  <p><span class="text-gray-500 w-8 inline-block">Sáb:</span> {restaurantConfig.hours.sabado}</p>
+                  <p><span class="text-gray-500 w-8 inline-block">Dom:</span> {restaurantConfig.hours.domingo}</p>
                 </div>
-                <p class="mt-4 text-xs text-gray-400 italic">
-                  * O restaurante encontra-se aberto conforme os horários acima indicados, no entanto, as reservas de mesa estão disponíveis apenas para quarta e quinta-feira.
-                </p>
               </div>
             </div>
 
@@ -66,11 +66,6 @@ import { restaurantConfig } from '../data/config.js';
             </div>
           </div>
 
-          <!-- Notes -->
-          <div class="mt-10 pt-6 border-t border-gray-700">
-              <p>* Apenas são tolerados 15 minutos de atraso. Por favor, informe-nos em caso de atraso para encontrarmos a melhor solução.</p>
-              <p>* Para grupos > 10 pessoas, contacte-nos por telefone.</p>
-          </div>
         </div>
 
         <!-- Form Panel (Right Side) -->
@@ -161,7 +156,7 @@ import { restaurantConfig } from '../data/config.js';
               </p>
               <div class="bg-neutral-50 p-6 md:p-8 rounded-2xl border border-gray-100 mb-8 md:mb-12 w-full max-w-sm mx-auto">
                   <p class="text-sm text-gray-500 leading-relaxed italic">
-                    Serão contactados em caso de necessidade de ajuste. Por favor, apresente-se no restaurante no horário estipulado.
+                    Serão contactados em caso de necessidade de ajuste. Por favor, apresente-se no bar de vinhos no horário estipulado.
                   </p>
               </div>
               <button id="reset-form" class="bg-gold hover:bg-black text-white px-10 md:px-12 py-4 rounded-lg font-medium transition-all uppercase tracking-widest text-xs shadow-lg">
@@ -448,7 +443,7 @@ import { restaurantConfig } from '../data/config.js';
       }
 
       if (!currentSettings.tables || currentSettings.tables.length === 0) {
-          slotsContainer.innerHTML = '<div class="col-span-full text-center text-red-500 bg-red-50 p-4 rounded-lg text-sm">O restaurante ainda não configurou as mesas.</div>';
+          slotsContainer.innerHTML = '<div class="col-span-full text-center text-red-500 bg-red-50 p-4 rounded-lg text-sm">O bar de vinhos ainda não configurou as mesas.</div>';
           return;
       }
 

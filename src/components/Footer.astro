@@ -12,6 +12,7 @@ const currentYear = new Date().getFullYear();
       
       <!-- Brand -->
       <div>
+        <img src="/images/social/logo-removebg-preview(1).png" alt="Expressão da Uva" class="h-16 w-auto object-contain mb-4" />
         <h3 class="text-3xl font-serif font-light mb-4">{restaurantConfig.name}</h3>
         <p class="text-gray-400 text-sm uppercase tracking-wider">{restaurantConfig.tagline}</p>
       </div>
@@ -20,10 +21,13 @@ const currentYear = new Date().getFullYear();
       <div>
         <h4 class="text-sm uppercase tracking-[0.2em] text-gray-400 mb-6">Horário</h4>
         <div class="space-y-2 text-gray-300">
-          <p>Seg - Ter: {restaurantConfig.hours.segunda_terca}</p>
-          <p>Qua - Qui: {restaurantConfig.hours.quarta_quinta}</p>
-          <p>Sex - Sáb: {restaurantConfig.hours.sexta_sabado}</p>
-          <p>Dom: {restaurantConfig.hours.domingo}</p>
+          <p><span class="text-gray-500">Seg:</span> {restaurantConfig.hours.segunda}</p>
+          <p><span class="text-gray-500">Ter:</span> {restaurantConfig.hours.terca}</p>
+          <p><span class="text-gray-500">Qua:</span> {restaurantConfig.hours.quarta}</p>
+          <p><span class="text-gray-500">Qui:</span> {restaurantConfig.hours.quinta}</p>
+          <p><span class="text-gray-500">Sex:</span> {restaurantConfig.hours.sexta}</p>
+          <p><span class="text-gray-500">Sáb:</span> {restaurantConfig.hours.sabado}</p>
+          <p><span class="text-gray-500">Dom:</span> {restaurantConfig.hours.domingo}</p>
         </div>
       </div>
       
@@ -71,7 +75,7 @@ const currentYear = new Date().getFullYear();
       
       <!-- Credits -->
       <a href="https://digismartai.netlify.app/" target="_blank" rel="noopener noreferrer" class="opacity-80 hover:opacity-100 transition-opacity">
-        <img src="/images/logo-ds.png" alt="Digismart AI" class="h-8 md:h-10 w-auto" />
+        <img src="/images/logo-ds.png" alt="DigiSmart" class="h-8 md:h-10 w-auto" />
       </a>
     </div>
   </div>

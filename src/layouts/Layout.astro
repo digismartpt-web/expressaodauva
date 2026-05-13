@@ -27,22 +27,23 @@ const {
   description = restaurantConfig.description,
   image = restaurantConfig.images.cover,
   type = "website",
-  canonicalURL = "https://votre-site.com",
+  canonicalURL = "https://expressaodauva.pt",
   heroImage
 } = Astro.props;
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
+  "@type": "LiquorStore",
   "name": restaurantConfig.name,
   "description": restaurantConfig.description,
-  "url": "http://localhost:4321",
+  "url": "https://expressaodauva.pt",
   "telephone": [restaurantConfig.contact.phone],
   "openingHours": [
-    "We-Th 11:00-15:00", 
-    "We-Th 18:00-23:00", 
-    "Fr-Sa 11:00-00:00", 
-    "Su 18:00-23:00"
+    "Tu 10:00-20:00",
+    "We 10:00-20:00",
+    "Th 10:00-20:00",
+    "Fr 10:00-22:00",
+    "Sa 10:00-22:00"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -90,10 +91,10 @@ const schema = {
     
     <!-- Preload critical assets -->
     {heroImage && <link rel="preload" href={heroImage} as="image" fetchpriority="high" />}
-    <link rel="preconnect" href="https://stackblitz.com" />
+    <link rel="preconnect" href="https://www.google.com" />
     
     <!-- Alternative languages -->
-    <link rel="alternate" hreflang="pt" href="http://localhost:4321" />
+    <link rel="alternate" hreflang="pt" href="https://expressaodauva.pt" />
     
     <!-- PWA meta tags -->
     <meta name="theme-color" content="#8AB77B" />
@@ -117,7 +118,7 @@ const schema = {
     <div class="fixed bottom-0 right-8 z-[100] bg-black text-white px-5 py-3 text-xs uppercase tracking-wider font-medium rounded-t-lg shadow-2xl border-t border-x border-white/10 flex items-center gap-3">
       Developed for free by 
       <a href="https://digismartai.netlify.app/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
-        <img src="/images/logo-ds.png" alt="Digismart AI" class="h-6 w-auto" />
+        <img src="/images/logo-ds.png" alt="DigiSmart" class="h-6 w-auto" />
       </a>
     </div>
     <script>

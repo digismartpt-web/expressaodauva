@@ -18,12 +18,21 @@ const menuItems = [
       <!-- Logo / Name -->
       <div class="flex items-center gap-4 mb-4 md:mb-6 md:flex-col">
         <a href="/#home" id="logo-link" class="flex flex-col items-center text-center group transition-all duration-300">
+          <!-- Logo visible uniquement avant scroll -->
+          <div id="logo-img-wrapper" class="mb-3 transition-all duration-300">
+            <img
+              src="/images/social/logo-removebg-preview(1).png"
+              alt="Expressão da Uva"
+              id="logo-img"
+              class="h-24 md:h-32 w-auto object-contain block"
+            />
+          </div>
           <span id="logo-text" class="font-serif text-3xl md:text-5xl tracking-wider text-neutral-900 transition-all duration-300">{restaurantConfig.name}</span>
-          <span id="logo-sub" class="text-xs md:text-sm tracking-[0.3em] uppercase text-neutral-500 mt-2 transition-all duration-300">Pizzaria</span>
+          <span id="logo-sub" class="text-xs md:text-sm tracking-[0.3em] uppercase text-neutral-500 mt-2 transition-all duration-300">Bar de Vinhos</span>
         </a>
         <!-- Mobile-only Pedir Online button beside logo -->
         <a 
-          href="https://olharosol.newappai.com/" 
+          href="https://www.instagram.com/expressao_da_uva/reels/" 
           target="_blank" 
           rel="noopener noreferrer"
           class="pedir-btn md:hidden px-3 py-1.5 bg-gold text-white text-[9px] font-bold uppercase tracking-widest rounded-full hover:bg-neutral-900 transition-all duration-300 shadow-md whitespace-nowrap"
@@ -45,7 +54,7 @@ const menuItems = [
             {item.text === 'Click & Collect' && (
               <div class="absolute top-[110%] left-0 w-full">
                 <a 
-                  href="https://olharosol.newappai.com/" 
+                  href="https://www.instagram.com/expressao_da_uva/reels/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="pedir-btn block w-full text-center px-3 py-0.5 bg-gold text-white text-[8px] font-bold uppercase tracking-widest rounded-full hover:bg-neutral-900 transition-colors duration-300 shadow-sm whitespace-nowrap"
@@ -74,7 +83,7 @@ const menuItems = [
 </header>
 
 <!-- Spacer to prevent content from hiding behind fixed header initially -->
-<div class="h-[140px] md:h-[200px] bg-white"></div>
+<div class="h-[220px] md:h-[360px] bg-white"></div>
 
 <!-- Mobile Menu Full Screen Overlay -->
 <div id="mobile-menu" class="fixed inset-0 bg-neutral-900 z-50 hidden opacity-0 transition-opacity duration-300">
@@ -103,7 +112,7 @@ const menuItems = [
           </a>
           {item.text === 'Click & Collect' && (
             <a 
-              href="https://olharosol.newappai.com/" 
+              href="https://www.instagram.com/expressao_da_uva/reels/" 
               target="_blank" 
               rel="noopener noreferrer"
               class="px-8 py-3 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-full hover:bg-white hover:text-gold transition-all duration-300 shadow-lg"
@@ -143,6 +152,10 @@ const menuItems = [
   /* Scrolled State Overrides */
   header.scrolled {
     @apply shadow-sm py-0;
+  }
+
+  header.scrolled #logo-img-wrapper {
+    display: none;
   }
   
   header.scrolled #nav-container {
