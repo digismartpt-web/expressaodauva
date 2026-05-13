@@ -262,6 +262,7 @@ const menuItems = [
   }
 
   mobileBtn?.addEventListener('click', openMenu);
+  mobileBtn?.addEventListener('touchend', (e) => { e.preventDefault(); openMenu(); });
   closeMenuButton?.addEventListener('click', closeMenu);
   mobileMenu?.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
 
