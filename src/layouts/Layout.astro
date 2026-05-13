@@ -143,6 +143,10 @@ const schema = {
         smoothWheel: true,
       });
 
+      lenis.on('scroll', function(e) {
+        window.dispatchEvent(new CustomEvent('lenisscroll', { detail: e.scroll }));
+      });
+
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);

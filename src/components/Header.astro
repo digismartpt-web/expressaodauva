@@ -145,132 +145,114 @@ const menuItems = [
   }
 </style>
 
-<script>
-  const header        = document.getElementById('main-header')!;
-  const logoImgWrapper = document.getElementById('logo-img-wrapper')!;
-  const navContainer  = document.getElementById('nav-container')!;
-  const logoSection   = document.getElementById('logo-section')!;
-  const logoLink      = document.getElementById('logo-link')!;
-  const logoText      = document.getElementById('logo-text')!;
-  const logoSub       = document.getElementById('logo-sub')!;
-  const desktopMenu   = document.getElementById('desktop-menu');
-  const pedirMobile   = document.getElementById('pedir-mobile');
-  const mobileBtn     = document.getElementById('mobile-menu-button');
+<script is:inline>
+  var header        = document.getElementById('main-header');
+  var logoImgWrapper = document.getElementById('logo-img-wrapper');
+  var navContainer  = document.getElementById('nav-container');
+  var logoSection   = document.getElementById('logo-section');
+  var logoLink      = document.getElementById('logo-link');
+  var logoText      = document.getElementById('logo-text');
+  var logoSub       = document.getElementById('logo-sub');
+  var desktopMenu   = document.getElementById('desktop-menu');
+  var pedirMobile   = document.getElementById('pedir-mobile');
+  var mobileBtn     = document.getElementById('mobile-menu-button');
 
-  const THRESHOLD = 50;
-  let scrolled = false;
+  var THRESHOLD = 50;
+  var scrolled = false;
 
   function applyScrolled() {
-    // Header ombre
+    if (!header || !logoImgWrapper || !navContainer || !logoSection || !logoLink || !logoText || !logoSub) return;
     header.style.boxShadow = '0 1px 4px rgba(0,0,0,0.08)';
-
-    // Logo image disparaît
     logoImgWrapper.style.display = 'none';
-
-    // Nav → ligne horizontale
     navContainer.style.flexDirection  = 'row';
     navContainer.style.alignItems     = 'center';
     navContainer.style.justifyContent = 'space-between';
     navContainer.style.paddingTop     = '0.6rem';
     navContainer.style.paddingBottom  = '0.6rem';
-
-    // Bloc logo : plus de marge en bas
     logoSection.style.marginBottom = '0';
-
-    // Nom + Bar de Vinhos : alignés à gauche
     logoLink.style.alignItems = 'flex-start';
     logoLink.style.textAlign  = 'left';
-
-    // Textes plus petits
     logoText.style.fontSize   = '1.25rem';
     logoText.style.lineHeight = '1.2';
     logoSub.style.marginTop   = '0';
     logoSub.style.fontSize    = '0.6rem';
-
-    // Menu desktop : espacement réduit
     if (desktopMenu) desktopMenu.style.gap = '2rem';
-
-    // Bouton Pedir mobile : plus petit (pas masqué)
     if (pedirMobile) {
       pedirMobile.style.fontSize  = '0.5rem';
       pedirMobile.style.padding   = '0.2rem 0.5rem';
     }
-
-    // Bouton hamburger repositionné
     if (mobileBtn) mobileBtn.style.top = '0.8rem';
   }
 
   function resetScrolled() {
+    if (!header || !logoImgWrapper || !navContainer || !logoSection || !logoLink || !logoText || !logoSub) return;
     header.style.boxShadow = '';
-
     logoImgWrapper.style.display = '';
-
     navContainer.style.flexDirection  = '';
     navContainer.style.alignItems     = '';
     navContainer.style.justifyContent = '';
     navContainer.style.paddingTop     = '';
     navContainer.style.paddingBottom  = '';
-
     logoSection.style.marginBottom = '';
-
     logoLink.style.alignItems = '';
     logoLink.style.textAlign  = '';
-
     logoText.style.fontSize   = '';
     logoText.style.lineHeight = '';
     logoSub.style.marginTop   = '';
     logoSub.style.fontSize    = '';
-
     if (desktopMenu) desktopMenu.style.gap = '';
-
     if (pedirMobile) {
       pedirMobile.style.fontSize = '';
       pedirMobile.style.padding  = '';
     }
-
     if (mobileBtn) mobileBtn.style.top = '';
   }
 
-  function updateHeader() {
-    const shouldScroll = window.scrollY > THRESHOLD;
+  function handleScrollPos(pos) {
+    var shouldScroll = pos > THRESHOLD;
     if (shouldScroll === scrolled) return;
     scrolled = shouldScroll;
     shouldScroll ? applyScrolled() : resetScrolled();
   }
 
-  // Listen to native scroll event AND poll via rAF (for Lenis compatibility on mobile)
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  (function rafLoop() { updateHeader(); requestAnimationFrame(rafLoop); })();
+  // Native scroll + rAF fallback
+  window.addEventListener('scroll', function() { handleScrollPos(window.scrollY); }, { passive: true });
+  (function rafLoop() { handleScrollPos(window.scrollY); requestAnimationFrame(rafLoop); })();
+
+  // Lenis scroll event (fired from Layout.astro lenis.on('scroll'))
+  window.addEventListener('lenisscroll', function(e) { handleScrollPos(e.detail); });
 
   // ── Mobile menu ──
-  const mobileMenu      = document.getElementById('mobile-menu');
-  const closeMenuButton = document.getElementById('close-menu-button');
+  var mobileMenu      = document.getElementById('mobile-menu');
+  var closeMenuButton = document.getElementById('close-menu-button');
 
   function openMenu() {
     if (!mobileMenu) return;
     mobileMenu.classList.remove('hidden');
-    // double rAF ensures display:block is applied before opacity transition starts
-    requestAnimationFrame(() => requestAnimationFrame(() => mobileMenu.classList.remove('opacity-0')));
+    requestAnimationFrame(function() { requestAnimationFrame(function() { mobileMenu.classList.remove('opacity-0'); }); });
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     if (!mobileMenu) return;
     mobileMenu.classList.add('opacity-0');
-    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+    setTimeout(function() { mobileMenu.classList.add('hidden'); }, 300);
     document.body.style.overflow = '';
   }
 
-  mobileBtn?.addEventListener('click', openMenu);
-  mobileBtn?.addEventListener('touchend', (e) => { e.preventDefault(); openMenu(); });
-  closeMenuButton?.addEventListener('click', closeMenu);
-  mobileMenu?.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', openMenu);
+    mobileBtn.addEventListener('touchend', function(e) { e.preventDefault(); openMenu(); });
+    mobileBtn.addEventListener('pointerup', function(e) { e.preventDefault(); openMenu(); });
+  }
+  if (closeMenuButton) closeMenuButton.addEventListener('click', closeMenu);
+  if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(function(l) { l.addEventListener('click', closeMenu); });
 
-  document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = (this as HTMLAnchorElement).getAttribute('href');
-      if (href?.startsWith('/#')) {
-        const target = document.querySelector(href.substring(1));
+  document.querySelectorAll('a[href^="/#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = anchor.getAttribute('href');
+      if (href && href.startsWith('/#')) {
+        var target = document.querySelector(href.substring(1));
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
